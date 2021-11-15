@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -96,6 +97,9 @@ public class FXMLController implements Initializable {
     int turns = 20;
     boolean playing = true;
 
+    Image white = new Image(getClass().getResource("/white.jpg").toString());
+    Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
+    
     @FXML
     void btnExit(ActionEvent event) {
         System.exit(0);
@@ -107,6 +111,16 @@ public class FXMLController implements Initializable {
         
         turns = turns-1;
         lblTurns.setText(""+turns);
+        
+        ImageView grid = (ImageView) event.getSource();
+        String X = grid.getAccessibleText();
+        
+        if (X == "X"){
+            grid.setImage(ship);
+        }
+        else {
+            grid.setImage(null);
+        }
         
         winCheck();
         }
