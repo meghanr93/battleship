@@ -94,17 +94,21 @@ public class FXMLController implements Initializable {
 
     @FXML
     void btnExit(ActionEvent event) {
-
+        System.exit(0);
     }
 
     @FXML
     void imgClick(MouseEvent event) {
-
+        
     }
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        ImageView boxes[] = {imgGrid1, imgGrid2, imgGrid3, imgGrid4, imgGrid5, imgGrid6, imgGrid7,
+        imgGrid8, imgGrid9, imgGrid10, imgGrid11, imgGrid12, imgGrid13, imgGrid14, imgGrid15, imgGrid16,
+        imgGrid17, imgGrid18, imgGrid19, imgGrid20, imgGrid21, imgGrid22, imgGrid23, imgGrid24, imgGrid25,
+        imgGrid26, imgGrid27, imgGrid28, imgGrid29, imgGrid30, imgGrid31, imgGrid32, imgGrid33, imgGrid34,
+        imgGrid35, imgGrid36};
     }    
 }
