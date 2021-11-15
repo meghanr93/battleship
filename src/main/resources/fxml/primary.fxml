@@ -1,11 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.2-internal" fx:controller="ryan.battleship.FXMLController">
-    <children>
-        <Button layoutX="128.0" layoutY="107.0" onAction="#btnClickAction" text="Click Me!" />
-        <Label fx:id="lblOut" layoutX="53.0" layoutY="30.0" minHeight="16" minWidth="69" prefHeight="52.0" prefWidth="215.0" />
-    </children>
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: black;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ryan.battleship.FXMLController">
+   <children>
+      <ImageView fx:id="imgGrid1" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="41.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid2" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="41.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid3" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="41.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid4" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="41.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid5" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="41.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid6" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="41.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid7" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="141.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid8" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="141.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid9" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="141.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid10" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="141.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid11" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="141.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid12" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="141.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid13" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="241.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid14" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="241.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid15" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="241.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid16" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="241.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid17" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="241.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid18" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="241.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid19" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="341.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid20" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="341.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid21" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="341.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid22" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="341.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid23" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="341.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid24" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="341.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid25" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="441.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid26" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="441.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid27" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="441.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid28" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="441.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid29" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="441.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid30" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="441.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid31" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="541.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid32" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="541.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid33" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="541.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid34" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="541.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid35" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="541.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid36" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="541.0" onMouseClicked="#imgClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="649.0" layoutY="41.0" text="Turns Left" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTurns" alignment="CENTER" layoutX="663.0" layoutY="81.0" prefHeight="21.0" prefWidth="59.0" text="20" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="677.0" layoutY="701.0" mnemonicParsing="false" onAction="#btnExit" prefHeight="25.0" prefWidth="59.0" styleClass="bevel-grey" text="Exit">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
