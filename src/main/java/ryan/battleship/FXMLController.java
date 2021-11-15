@@ -91,6 +91,8 @@ public class FXMLController implements Initializable {
 
     @FXML
     private Label lblTurns;
+    
+    int turns = 20;
 
     @FXML
     void btnExit(ActionEvent event) {
@@ -99,9 +101,13 @@ public class FXMLController implements Initializable {
 
     @FXML
     void imgClick(MouseEvent event) {
-        
+        turns = turns-1;
+        lblTurns.setText(""+turns);
     }
 
+    void setShips(){
+        
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
