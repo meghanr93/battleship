@@ -7,6 +7,7 @@ This program, you have to find randomly placed battleships within a limited numb
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.ThreadLocalRandom;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -93,6 +94,7 @@ public class FXMLController implements Initializable {
     private Label lblTurns;
     
     int turns = 20;
+    boolean playing = true;
 
     @FXML
     void btnExit(ActionEvent event) {
@@ -101,12 +103,27 @@ public class FXMLController implements Initializable {
 
     @FXML
     void imgClick(MouseEvent event) {
+        if (playing == true){
+        
         turns = turns-1;
         lblTurns.setText(""+turns);
+        
+        winCheck();
+        }
     }
 
     void setShips(){
-        
+        int ship1x = ThreadLocalRandom.current().nextInt(1,6+1);
+        int ship1y = ThreadLocalRandom.current().nextInt(1,6+1);
+        if (ship1x == 1){
+            int rand = ThreadLocalRandom.current().nextInt(1,2+1);
+        }
+    }
+    
+    void winCheck(){
+        if (turns==0){
+            playing = false;
+        }
     }
     
     @Override
@@ -116,5 +133,6 @@ public class FXMLController implements Initializable {
         imgGrid17, imgGrid18, imgGrid19, imgGrid20, imgGrid21, imgGrid22, imgGrid23, imgGrid24, imgGrid25,
         imgGrid26, imgGrid27, imgGrid28, imgGrid29, imgGrid30, imgGrid31, imgGrid32, imgGrid33, imgGrid34,
         imgGrid35, imgGrid36};
+        setShips();
     }    
 }
