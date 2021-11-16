@@ -93,14 +93,16 @@ public class FXMLController implements Initializable {
 
     @FXML
     private Label lblTurns;
-    
+    @FXML
+    private Label lblHits;
+    ImageView boxes[];
     int turns = 20;
+    int hits = 0;
     boolean playing = true;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
-    
-    
+    /* Image variables so they can be easily reused. */
     
     @FXML
     void btnExit(ActionEvent event) {
@@ -116,45 +118,56 @@ public class FXMLController implements Initializable {
 
     @FXML
     void imgClick(MouseEvent event) {
+        /* Code runs whenever one of the grid boxes are clicked. */
         if (playing == true){
         ImageView grid = (ImageView) event.getSource();
         String state = grid.getAccessibleText();
-        if (state !=""){
+        if (!"".equals(state)){
+        /* Checks if the grid has already been clicked, if so, does nothing. */
         turns = turns-1;
         lblTurns.setText(""+turns);
         
-        if (state =="X"){
+        if ("X".equals(state)){
             grid.setImage(ship);
             grid.setAccessibleText("");
+            hits = hits + 1;
+            lblHits.setText(""+hits);
         }
-        else if (state =="O") {
+        else if ("O".equals(state)) {
             grid.setImage(null);
             grid.setAccessibleText("");
-        }
-        
+        }       
+        /* Checks if a grid has a ship or if it is empty. */        
         winCheck();
         }
         }
     }
 
     void setShip(){
-        int ship1 = ThreadLocalRandom.current().nextInt(1,36+1);    
+        /* Sets the first ship part. */
+        int ship1 = ThreadLocalRandom.current().nextInt(0,35+1); 
+        boxes[ship1].setAccessibleText("X");
         int rand = ThreadLocalRandom.current().nextInt(1,4+1);  
     }
     
     void winCheck(){
-        if (turns==0){
+        /* Checks for win or lose condition. */
+        if (hits==5){
+            playing = false;
+        }
+        else if (turns==0){
             playing = false;
         }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ImageView boxes[] = {imgGrid1, imgGrid2, imgGrid3, imgGrid4, imgGrid5, imgGrid6, imgGrid7,
+        ImageView temp[] ={imgGrid1, imgGrid2, imgGrid3, imgGrid4, imgGrid5, imgGrid6, imgGrid7,
         imgGrid8, imgGrid9, imgGrid10, imgGrid11, imgGrid12, imgGrid13, imgGrid14, imgGrid15, imgGrid16,
         imgGrid17, imgGrid18, imgGrid19, imgGrid20, imgGrid21, imgGrid22, imgGrid23, imgGrid24, imgGrid25,
         imgGrid26, imgGrid27, imgGrid28, imgGrid29, imgGrid30, imgGrid31, imgGrid32, imgGrid33, imgGrid34,
         imgGrid35, imgGrid36};
+        boxes=temp;
         setShip();
     }    
 }
