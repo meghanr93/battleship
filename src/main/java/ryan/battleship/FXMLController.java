@@ -11,6 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -90,6 +91,11 @@ public class FXMLController implements Initializable {
     private ImageView imgGrid35;
     @FXML
     private ImageView imgGrid36;
+    
+    @FXML
+    private Button btnReset;
+    @FXML
+    private Button btnExit;
 
     @FXML
     private Label lblTurns;
@@ -98,6 +104,7 @@ public class FXMLController implements Initializable {
     ImageView boxes[];
     int turns = 20;
     int hits = 0;
+    int ship1 = 0;
     boolean playing = true;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
@@ -105,12 +112,12 @@ public class FXMLController implements Initializable {
     /* Image variables so they can be easily reused. */
     
     @FXML
-    void btnExit(ActionEvent event) {
+    void btnExitClick(ActionEvent event) {
         System.exit(0);
     }
     
     @FXML
-    void btnReset(ActionEvent event) {
+    void btnResetClick(ActionEvent event) {
         turns = 20;
         lblTurns.setText(""+20);
         
@@ -147,7 +154,55 @@ public class FXMLController implements Initializable {
         /* Sets the first ship part. */
         int ship1 = ThreadLocalRandom.current().nextInt(0,35+1); 
         boxes[ship1].setAccessibleText("X");
-        int rand = ThreadLocalRandom.current().nextInt(1,4+1);  
+        if (ship1==0){
+            setShip2(1,1,-6,-6);
+        }
+        else if (ship1==5){
+            setShip2(-1,-1,-6,-6);
+        }
+        else if (ship1==30){
+            setShip2(1,1,6,6);
+        }
+        else if (ship1==35){
+            setShip2(-1,-1,-6,-6);
+        }
+        else if ((ship1>0)&&(ship1<5)){
+            setShip2(-1,1,6,6);
+        }
+        else if ((ship1==6)||(ship1==12)||(ship1==18)||(ship1==24)){
+            setShip2(1,1,-6,6);
+        }
+        else if ((ship1==11)||(ship1==17)||(ship1==23)||(ship1==29)){
+            setShip2(-1,-1,-6,6);
+        }
+        else if ((ship1>30)&&(ship1<35)){
+            setShip2(-1,1,-6,-6);
+        }
+        else{
+            setShip2(-1,1,-6,6);
+        }
+        /* Conditions for where the second ship part can be placed. */
+    }
+    
+    void setShip2(Integer left,Integer right,Integer up,Integer down){
+        /* Randomly selects where to place the second part of the ship. */
+        int rand = ThreadLocalRandom.current().nextInt(1,4+1);
+        switch (rand) {
+            case 1:
+                boxes[ship1+left].setAccessibleText("X");
+                break;
+            case 2:
+                boxes[ship1+right].setAccessibleText("X");
+                break;
+            case 3:
+                boxes[ship1+up].setAccessibleText("X");
+                break;
+            case 4:
+                boxes[ship1+down].setAccessibleText("X");
+                break;
+            default:
+                break;
+        }
     }
     
     void winCheck(){
@@ -158,6 +213,29 @@ public class FXMLController implements Initializable {
         else if (turns==0){
             playing = false;
         }
+    }
+    
+    @FXML
+    void imgHover(MouseEvent event) {
+        ImageView grid = (ImageView) event.getSource();
+        String state = grid.getAccessibleText();
+        if ((!"".equals(state))&&(playing=true)){ 
+            grid.setFitHeight(110);
+            grid.setFitWidth(110);
+            grid.setTranslateX(-5);
+            grid.setTranslateY(-5);
+            grid.toFront();
+        }
+    }
+
+    @FXML
+    void imgUnhover(MouseEvent event) {
+        ImageView grid = (ImageView) event.getSource();
+        grid.setFitHeight(100);
+        grid.setFitWidth(100);
+        grid.setTranslateX(0);
+        grid.setTranslateY(0);
+        grid.toBack();
     }
     
     @Override
