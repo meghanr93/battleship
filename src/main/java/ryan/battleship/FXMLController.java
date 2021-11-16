@@ -100,38 +100,46 @@ public class FXMLController implements Initializable {
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
     
+    
+    
     @FXML
     void btnExit(ActionEvent event) {
         System.exit(0);
+    }
+    
+    @FXML
+    void btnReset(ActionEvent event) {
+        turns = 20;
+        lblTurns.setText(""+20);
+        
     }
 
     @FXML
     void imgClick(MouseEvent event) {
         if (playing == true){
-        
+        ImageView grid = (ImageView) event.getSource();
+        String state = grid.getAccessibleText();
+        if (state !=""){
         turns = turns-1;
         lblTurns.setText(""+turns);
         
-        ImageView grid = (ImageView) event.getSource();
-        String X = grid.getAccessibleText();
-        
-        if (X == "X"){
+        if (state =="X"){
             grid.setImage(ship);
+            grid.setAccessibleText("");
         }
-        else {
+        else if (state =="O") {
             grid.setImage(null);
+            grid.setAccessibleText("");
         }
         
         winCheck();
         }
+        }
     }
 
-    void setShips(){
-        int ship1x = ThreadLocalRandom.current().nextInt(1,6+1);
-        int ship1y = ThreadLocalRandom.current().nextInt(1,6+1);
-        if (ship1x == 1){
-            int rand = ThreadLocalRandom.current().nextInt(1,2+1);
-        }
+    void setShip(){
+        int ship1 = ThreadLocalRandom.current().nextInt(1,36+1);    
+        int rand = ThreadLocalRandom.current().nextInt(1,4+1);  
     }
     
     void winCheck(){
@@ -147,6 +155,6 @@ public class FXMLController implements Initializable {
         imgGrid17, imgGrid18, imgGrid19, imgGrid20, imgGrid21, imgGrid22, imgGrid23, imgGrid24, imgGrid25,
         imgGrid26, imgGrid27, imgGrid28, imgGrid29, imgGrid30, imgGrid31, imgGrid32, imgGrid33, imgGrid34,
         imgGrid35, imgGrid36};
-        setShips();
+        setShip();
     }    
 }
