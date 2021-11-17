@@ -127,19 +127,24 @@ public class FXMLController implements Initializable {
             boxes[i].setAccessibleText("O");
         }
         setShip();
+        playing = true;
     }
 
     @FXML
     void imgClick(MouseEvent event) {
         /* Code runs whenever one of the grid boxes are clicked. */
-        if (playing==true){
+        if (playing == true){
         ImageView grid = (ImageView) event.getSource();
         String state = grid.getAccessibleText();
         if (!"".equals(state)){
         /* Checks if the grid has already been clicked, if so, does nothing. */
         turns = turns-1;
         lblTurns.setText(""+turns);
-        
+        grid.setFitHeight(100);
+        grid.setFitWidth(100);
+        grid.setTranslateX(0);
+        grid.setTranslateY(0);
+        grid.toBack();
         if ("X".equals(state)){
             grid.setImage(ship);
             grid.setAccessibleText("");
@@ -150,9 +155,9 @@ public class FXMLController implements Initializable {
             grid.setImage(null);
             grid.setAccessibleText("");
         }       
-        /* Checks if a grid has a ship or if it is empty. */        
-        winCheck();
+        /* Checks if a grid has a ship or if it is empty. */             
         }
+        winCheck();
         }
     }
 
@@ -214,10 +219,10 @@ public class FXMLController implements Initializable {
     void winCheck(){
         /* Checks for win or lose condition. */
         if (hits==5){
-            playing = false;
+            playing=false;
         }
         else if (turns==0){
-            playing = false;
+            playing=false;
         }
     }
     
