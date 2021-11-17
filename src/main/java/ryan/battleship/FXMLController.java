@@ -105,7 +105,7 @@ public class FXMLController implements Initializable {
     int turns = 20;
     int hits = 0;
     int ship1 = 0;
-    boolean playing = true;
+    boolean playing=true;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
@@ -120,13 +120,19 @@ public class FXMLController implements Initializable {
     void btnResetClick(ActionEvent event) {
         turns = 20;
         lblTurns.setText(""+20);
-        
+        hits=0;
+        lblHits.setText("0");
+        for (int i = 0; i < boxes.length; i++) {
+            boxes[i].setImage(white);
+            boxes[i].setAccessibleText("O");
+        }
+        setShip();
     }
 
     @FXML
     void imgClick(MouseEvent event) {
         /* Code runs whenever one of the grid boxes are clicked. */
-        if (playing == true){
+        if (playing==true){
         ImageView grid = (ImageView) event.getSource();
         String state = grid.getAccessibleText();
         if (!"".equals(state)){
