@@ -279,7 +279,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="683.0" layoutY="176.0" prefHeight="30.0" prefWidth="53.0" text="/ 5" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="683.0" layoutY="176.0" prefHeight="30.0" prefWidth="53.0" text="/ 6" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

@@ -108,6 +108,7 @@ public class FXMLController implements Initializable {
     int right = 1;
     int up = 6;
     int down = 6;
+    boolean threeship=true;
     boolean playing=true;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
@@ -129,6 +130,8 @@ public class FXMLController implements Initializable {
             boxes[i].setImage(white);
             boxes[i].setAccessibleText("O");
         }
+        threeship=true;
+        setShip();
         setShip();
         playing = true;
     }
@@ -174,79 +177,127 @@ public class FXMLController implements Initializable {
     void setShip(){
         /* Sets the first ship part. */
         int ship1 = ThreadLocalRandom.current().nextInt(0,35+1); 
-        /*if (boxes[ship1].getAccessibleText.equals("X")){*/
-        boxes[ship1].setAccessibleText("X");
+        if (boxes[ship1].getAccessibleText().equals("X")){
+            setShip();
+        }
+        else{
+            boxes[ship1].setAccessibleText("X");
         int rand = ThreadLocalRandom.current().nextInt(1,4+1);
         if ((ship1==0)||(ship1==1)||(ship1==6)||(ship1==7)){
             setDirections(1,1,6,6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         else if ((ship1==4)||(ship1==5)||(ship1==10)||(ship1==11)){
             setDirections(-1,-1,6,6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         else if ((ship1==24)||(ship1==25)||(ship1==30)||(ship1==31)){
             setDirections(1,1,-6,-6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         else if ((ship1==28)||(ship1==29)||(ship1==34)||(ship1==35)){
             setDirections(-1,-1,-6,-6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         /* ^corners */
         else if ((ship1==2)||(ship1==3)||(ship1==8)||(ship1==9)){
             setDirections(-1,1,6,6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         else if ((ship1==12)||(ship1==13)||(ship1==18)||(ship1==19)){
             setDirections(1,1,-6,6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         else if ((ship1==16)||(ship1==17)||(ship1==22)||(ship1==23)){
             setDirections(-1,-1,-6,6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         else if ((ship1==26)||(ship1==27)||(ship1==32)||(ship1==33)){
             setDirections(-1,1,-6,-6);
             setShip2(left,right,up,down, rand, ship1);
+            if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
+            threeship=false;
+            }
         }
         /* ^ sides */
         else{
             setShip2(-1,1,-6,6, rand, ship1);
+            if (threeship==true){
             setShip2(-2,2,-12,12, rand, ship1);
+            threeship=false;
+            }
         }
         /* Conditions for where the second ship part can be placed. */
-        /*}*/
+        }
     }
     
     void setShip2(Integer left,Integer right,Integer up,Integer down, Integer rand, Integer ship1){
         /* Randomly selects where to place the second part of the ship. */
         switch (rand) {
             case 1:
-                /*if (boxes[ship1+left].getAccessibleText.equals("X")){
-                    rand = ThreadLocalRandom.current().nextInt(1,4+1);
-                    setShip2();
-                }*/
-                /*else{*/
+                if (boxes[ship1+left].getAccessibleText().equals("X")){
+                    rand = ThreadLocalRandom.current().nextInt(2,4+1);
+                    setShip2(left,right,up,down,rand,ship1);
+                }
+                else{
                 boxes[ship1+left].setAccessibleText("X");  
-                /*}*/
+                }
                 break;
             case 2:
+                if (boxes[ship1+right].getAccessibleText().equals("X")){
+                    rand = ThreadLocalRandom.current().nextInt(1,4+1);
+                    setShip2(left,right,up,down,rand,ship1);
+                }
+                else{
                 boxes[ship1+right].setAccessibleText("X");
+                }
                 break;
             case 3:
+                if (boxes[ship1+up].getAccessibleText().equals("X")){
+                    rand = ThreadLocalRandom.current().nextInt(1,4+1);
+                    setShip2(left,right,up,down,rand,ship1);
+                }
+                else{
                 boxes[ship1+up].setAccessibleText("X");
+                }
                 break;
             case 4:
+                if (boxes[ship1+down].getAccessibleText().equals("X")){
+                    rand = ThreadLocalRandom.current().nextInt(1,3+1);
+                    setShip2(left,right,up,down,rand,ship1);
+                }
+                else{
                 boxes[ship1+down].setAccessibleText("X");
+                }
                 break;
             default:
                 break;
@@ -255,7 +306,7 @@ public class FXMLController implements Initializable {
     
     void winCheck(){
         /* Checks for win or lose condition. */
-        if (hits==5){
+        if (hits==6){
             playing=false;
         }
         else if (turns==0){
@@ -294,6 +345,7 @@ public class FXMLController implements Initializable {
         imgGrid26, imgGrid27, imgGrid28, imgGrid29, imgGrid30, imgGrid31, imgGrid32, imgGrid33, imgGrid34,
         imgGrid35, imgGrid36};
         boxes=temp;
+        setShip();
         setShip();
     }    
 }
