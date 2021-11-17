@@ -199,7 +199,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnExit" alignment="CENTER" layoutX="677.0" layoutY="701.0" mnemonicParsing="false" onAction="#btnExitClick" prefHeight="25.0" prefWidth="59.0" styleClass="bevel-grey" text="Exit">
+      <Button fx:id="btnExit" alignment="CENTER" layoutX="655.0" layoutY="666.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnExitClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="50.0" prefWidth="75.0" styleClass="bevel-grey" text="Exit">
          <font>
             <Font size="16.0" />
          </font>
@@ -264,7 +264,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnReset" alignment="CENTER" layoutX="53.0" layoutY="666.0" mnemonicParsing="false" onAction="#btnResetClick" prefHeight="35.0" prefWidth="76.0" styleClass="bevel-grey" text="Reset">
+      <Button fx:id="btnReset" alignment="CENTER" layoutX="54.0" layoutY="666.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnResetClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="50.0" prefWidth="75.0" styleClass="bevel-grey" text="Reset">
          <font>
             <Font size="16.0" />
          </font>
@@ -279,7 +279,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="683.0" layoutY="176.0" prefHeight="30.0" prefWidth="53.0" text="/ 6" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="683.0" layoutY="176.0" prefHeight="30.0" prefWidth="53.0" text="/ 5" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>

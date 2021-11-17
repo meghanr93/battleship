@@ -102,7 +102,7 @@ public class FXMLController implements Initializable {
     @FXML
     private Label lblHits;
     ImageView boxes[];
-    int turns = 24;
+    int turns = 36;
     int hits = 0;
     int left = 1;
     int right = 1;
@@ -335,6 +335,26 @@ public class FXMLController implements Initializable {
         grid.setTranslateX(0);
         grid.setTranslateY(0);
         grid.toBack();
+    }
+    
+    @FXML
+    void btnHover(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setPrefHeight(55);
+        button.setPrefWidth(82.5);
+        button.setTranslateX(-2.5);
+        button.setTranslateY(-3.75);
+        button.toFront();     
+    }
+    
+    @FXML
+    void btnUnhover(MouseEvent event) {
+        Button button = (Button) event.getSource();
+        button.setPrefHeight(50);
+        button.setPrefWidth(75);
+        button.setTranslateX(0);
+        button.setTranslateY(0);
+        button.toBack();
     }
     
     @Override
