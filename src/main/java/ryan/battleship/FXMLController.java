@@ -25,6 +25,10 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
  import java.util.ArrayList;
  import java.util.Collections;
+import java.util.Optional;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextInputDialog;
 
 public class FXMLController implements Initializable {
         
@@ -100,11 +104,6 @@ public class FXMLController implements Initializable {
     private ImageView imgGrid35;
     @FXML
     private ImageView imgGrid36;
-    
-    @FXML
-    private Button btnReset;
-    @FXML
-    private Button btnExit;
 
     @FXML
     private Label lblTurns;
@@ -156,17 +155,17 @@ public class FXMLController implements Initializable {
     void imgClick(MouseEvent event) {
         /* Code runs whenever one of the grid boxes are clicked. */
         if (playing == true){
-        ImageView grid = (ImageView) event.getSource();
-        String state = grid.getAccessibleText();
+            ImageView grid = (ImageView) event.getSource();
+            String state = grid.getAccessibleText();
         if (!"".equals(state)){
         /* Checks if the grid has already been clicked, if so, does nothing. */
-        turns = turns-1;
-        lblTurns.setText(""+turns);
-        grid.setFitHeight(100);
-        grid.setFitWidth(100);
-        grid.setTranslateX(0);
-        grid.setTranslateY(0);
-        grid.toBack();
+            turns = turns-1;
+            lblTurns.setText(""+turns);
+            grid.setFitHeight(100);
+            grid.setFitWidth(100);
+            grid.setTranslateX(0);
+            grid.setTranslateY(0);
+            grid.toBack();
         if ("X".equals(state)){
             player = new MediaPlayer((new Media(getClass().getResource("/Rocket_Explosion.mp3").toString())));
             player.play();
@@ -331,20 +330,33 @@ public class FXMLController implements Initializable {
             playing=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
             player.play();
-            if (!scores.contains(turns)){
+        if (!scores.contains(turns)){
+            TextInputDialog dialog = new TextInputDialog("");
+            dialog.setTitle("New Score!");
+            dialog.setHeaderText("You've beaten your previous score!");
+            dialog.setContentText("Please enter your name:");
+            Optional<String> result = dialog.showAndWait();
             scores.add(turns);
             Collections.sort(scores);
             String output = "";
-            output = output + "\n";
             output += (scores) + "\n";
             lblScores.setText(output);
-            }
+        }
         }
         else if (turns==0){
             playing=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Fail.mp3").toString())));
             player.play();
         }
+    }
+    
+    @FXML
+    void btnInstructClick(ActionEvent event) {
+    Alert alert = new Alert(AlertType.INFORMATION);
+    alert.setTitle("How to Play");
+    alert.setHeaderText(null);
+    alert.setContentText("Click the grid squares to find the hidden ships. The two ships are either two or three connected grids long. Find all 5 ship grids to win. If you run out of turns, you lose.");
+    alert.showAndWait();
     }
     
     @FXML

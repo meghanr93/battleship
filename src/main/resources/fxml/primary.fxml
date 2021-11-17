@@ -294,5 +294,10 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Button fx:id="btnInstruct" alignment="CENTER" layoutX="191.0" layoutY="666.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnInstructClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="50.0" prefWidth="75.0" styleClass="bevel-grey" text="How to Play">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
