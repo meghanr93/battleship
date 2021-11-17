@@ -194,7 +194,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblTurns" alignment="CENTER" layoutX="663.0" layoutY="81.0" prefHeight="21.0" prefWidth="59.0" text="20" textFill="WHITE">
+      <Label fx:id="lblTurns" alignment="CENTER" layoutX="663.0" layoutY="81.0" prefHeight="21.0" prefWidth="59.0" text="24" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
