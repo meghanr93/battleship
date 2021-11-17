@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: black;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ryan.battleship.FXMLController">
+   <children>
+      <ImageView fx:id="imgGrid1" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="41.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid2" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="41.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid3" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="41.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid4" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="41.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid5" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="41.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid6" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="41.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid7" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="141.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid8" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="141.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid9" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="141.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid10" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="141.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid11" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="141.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid12" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="141.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid13" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="241.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid14" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="241.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid15" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="241.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid16" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="241.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid17" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="241.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid18" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="241.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid19" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="341.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid20" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="341.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid21" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="341.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid22" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="341.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid23" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="341.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid24" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="341.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid25" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="441.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid26" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="441.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid27" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="441.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid28" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="441.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid29" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="441.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid30" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="441.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid31" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="41.0" layoutY="541.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid32" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="141.0" layoutY="541.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid33" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="241.0" layoutY="541.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid34" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="341.0" layoutY="541.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid35" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="441.0" layoutY="541.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgGrid36" accessibleText="O" fitHeight="100.0" fitWidth="100.0" layoutX="541.0" layoutY="541.0" onMouseClicked="#imgClick" onMouseEntered="#imgHover" onMouseExited="#imgUnhover" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../white.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="649.0" layoutY="41.0" text="Turns Left" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTurns" alignment="CENTER" layoutX="663.0" layoutY="81.0" prefHeight="21.0" prefWidth="59.0" text="20" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnExit" alignment="CENTER" layoutX="677.0" layoutY="701.0" mnemonicParsing="false" onAction="#btnExitClick" prefHeight="25.0" prefWidth="59.0" styleClass="bevel-grey" text="Exit">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="41.0" layoutY="11.0" prefHeight="30.0" prefWidth="100.0" text="A" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="141.0" layoutY="11.0" prefHeight="30.0" prefWidth="100.0" text="B" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="241.0" layoutY="11.0" prefHeight="30.0" prefWidth="100.0" text="C" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="341.0" layoutY="11.0" prefHeight="30.0" prefWidth="100.0" text="D" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="441.0" layoutY="11.0" prefHeight="30.0" prefWidth="100.0" text="E" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="541.0" layoutY="11.0" prefHeight="30.0" prefWidth="100.0" text="F" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="41.0" prefHeight="100.0" prefWidth="27.0" text="1" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="141.0" prefHeight="100.0" prefWidth="27.0" text="2" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="241.0" prefHeight="100.0" prefWidth="27.0" text="3" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="341.0" prefHeight="100.0" prefWidth="27.0" text="4" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="441.0" prefHeight="100.0" prefWidth="27.0" text="5" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="541.0" prefHeight="100.0" prefWidth="27.0" text="6" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnReset" alignment="CENTER" layoutX="53.0" layoutY="666.0" mnemonicParsing="false" onAction="#btnResetClick" prefHeight="35.0" prefWidth="76.0" styleClass="bevel-grey" text="Reset">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="649.0" layoutY="141.0" prefHeight="30.0" prefWidth="87.0" text="Hits" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblHits" alignment="CENTER" layoutX="657.0" layoutY="176.0" prefHeight="21.0" prefWidth="59.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="683.0" layoutY="176.0" prefHeight="30.0" prefWidth="53.0" text="/ 5" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
