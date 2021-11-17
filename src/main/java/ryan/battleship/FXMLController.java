@@ -16,6 +16,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import java.io.IOException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class FXMLController implements Initializable {
         
@@ -102,7 +109,7 @@ public class FXMLController implements Initializable {
     @FXML
     private Label lblHits;
     ImageView boxes[];
-    int turns = 36;
+    int turns = 24;
     int hits = 0;
     int left = 1;
     int right = 1;
@@ -110,6 +117,8 @@ public class FXMLController implements Initializable {
     int down = 6;
     boolean threeship=true;
     boolean playing=true;
+    
+    MediaPlayer player;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
@@ -152,12 +161,16 @@ public class FXMLController implements Initializable {
         grid.setTranslateY(0);
         grid.toBack();
         if ("X".equals(state)){
+            player = new MediaPlayer((new Media(getClass().getResource("/Rocket_Explosion.mp3").toString())));
+            player.play();
             grid.setImage(ship);
             grid.setAccessibleText("");
             hits = hits + 1;
             lblHits.setText(""+hits);
         }
         else if ("O".equals(state)) {
+            player = new MediaPlayer((new Media(getClass().getResource("/Bamboo_Hit.mp3").toString())));
+            player.play();
             grid.setImage(null);
             grid.setAccessibleText("");
         }       
