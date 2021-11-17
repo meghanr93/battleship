@@ -137,6 +137,8 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnResetClick(ActionEvent event) {
+        player = new MediaPlayer((new Media(getClass().getResource("/Ding.mp3").toString())));
+        player.play();
         turns = 24;
         lblTurns.setText(""+24);
         hits=0;
@@ -352,6 +354,8 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnInstructClick(ActionEvent event) {
+    player = new MediaPlayer((new Media(getClass().getResource("/Click.mp3").toString())));
+    player.play();
     Alert alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("How to Play");
     alert.setHeaderText(null);
