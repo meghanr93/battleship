@@ -349,6 +349,15 @@ public class FXMLController implements Initializable {
             playing=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Fail.mp3").toString())));
             player.play();
+            for (int i = 0; i < boxes.length; i++) {
+                if (boxes[i].getAccessibleText().equals("O")){
+                boxes[i].setImage(null);
+                }
+                if (boxes[i].getAccessibleText().equals("X")){
+                boxes[i].setImage(ship);
+                }
+            boxes[i].setAccessibleText("");
+        }
         }
     }
     
