@@ -23,6 +23,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+ import java.util.ArrayList;
+ import java.util.Collections;
 
 public class FXMLController implements Initializable {
         
@@ -108,6 +110,9 @@ public class FXMLController implements Initializable {
     private Label lblTurns;
     @FXML
     private Label lblHits;
+    @FXML
+    private Label lblScores;
+    
     ImageView boxes[];
     int turns = 24;
     int hits = 0;
@@ -123,6 +128,8 @@ public class FXMLController implements Initializable {
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
     /* Image variables so they can be easily reused. */
+    
+     ArrayList<Integer> scores = new ArrayList();
     
     @FXML
     void btnExitClick(ActionEvent event) {
@@ -190,6 +197,7 @@ public class FXMLController implements Initializable {
     void setShip(){
         /* Sets the first ship part. */
         int ship1 = ThreadLocalRandom.current().nextInt(0,35+1); 
+        System.out.println(ship1);
         if (boxes[ship1].getAccessibleText().equals("X")){
             setShip();
         }
@@ -319,11 +327,23 @@ public class FXMLController implements Initializable {
     
     void winCheck(){
         /* Checks for win or lose condition. */
-        if (hits==6){
+        if (hits==5){
             playing=false;
+            player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
+            player.play();
+            if (!scores.contains(turns)){
+            scores.add(turns);
+            Collections.sort(scores);
+            String output = "";
+            output = output + "\n";
+            output += (scores) + "\n";
+            lblScores.setText(output);
+            }
         }
         else if (turns==0){
             playing=false;
+            player = new MediaPlayer((new Media(getClass().getResource("/Fail.mp3").toString())));
+            player.play();
         }
     }
     
