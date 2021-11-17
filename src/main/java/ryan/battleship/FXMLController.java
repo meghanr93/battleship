@@ -104,7 +104,10 @@ public class FXMLController implements Initializable {
     ImageView boxes[];
     int turns = 24;
     int hits = 0;
-    int ship1 = 0;
+    int left = 1;
+    int right = 1;
+    int up = 6;
+    int down = 6;
     boolean playing=true;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
@@ -118,8 +121,8 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnResetClick(ActionEvent event) {
-        turns = 20;
-        lblTurns.setText(""+20);
+        turns = 24;
+        lblTurns.setText(""+24);
         hits=0;
         lblHits.setText("0");
         for (int i = 0; i < boxes.length; i++) {
@@ -160,58 +163,74 @@ public class FXMLController implements Initializable {
         winCheck();
         }
     }
+    
+    void setDirections(Integer l, Integer r, Integer u, Integer d){
+        left = l;
+        right = r;
+        up = u;
+        down = d;
+    }
 
     void setShip(){
         /* Sets the first ship part. */
-        ship1 = ThreadLocalRandom.current().nextInt(0,35+1); 
+        int ship1 = ThreadLocalRandom.current().nextInt(0,35+1); 
+        if (boxes[ship1].getAccessibleText.equals("X")){
         boxes[ship1].setAccessibleText("X");
         int rand = ThreadLocalRandom.current().nextInt(1,4+1);
         if ((ship1==0)||(ship1==1)||(ship1==6)||(ship1==7)){
-            setShip2(1,1,-6,-6, rand);
-            setShip2(2,2,-12,-12, rand);
+            setDirections(1,1,-6,-6);
+            setShip2(1,1,-6,-6, rand, ship1);
+            setShip2(2,2,-12,-12, rand, ship1);
         }
         else if ((ship1==4)||(ship1==5)||(ship1==10)||(ship1==11)){
-            setShip2(-1,-1,-6,-6, rand);
-            setShip2(-2,-2,-12,-12, rand);
+            setShip2(-1,-1,-6,-6, rand, ship1);
+            setShip2(-2,-2,-12,-12, rand, ship1);
         }
         else if ((ship1==24)||(ship1==25)||(ship1==30)||(ship1==31)){
-            setShip2(1,1,6,6, rand);
-            setShip2(2,2,-12,-12, rand);
+            setShip2(1,1,6,6, rand, ship1);
+            setShip2(2,2,-12,-12, rand, ship1);
         }
         else if ((ship1==28)||(ship1==29)||(ship1==34)||(ship1==35)){
-            setShip2(-1,-1,-6,-6, rand);
-            setShip2(-2,-2,-12,-12, rand);
+            setShip2(-1,-1,-6,-6, rand, ship1);
+            setShip2(-2,-2,-12,-12, rand, ship1);
         }
         /* ^corners */
         else if ((ship1==2)||(ship1==3)||(ship1==8)||(ship1==9)){
-            setShip2(-1,1,6,6, rand);
-            setShip2(-2,2,12,12, rand);
+            setShip2(-1,1,6,6, rand, ship1);
+            setShip2(-2,2,12,12, rand, ship1);
         }
         else if ((ship1==12)||(ship1==13)||(ship1==18)||(ship1==19)){
-            setShip2(1,1,-6,6, rand);
-            setShip2(2,2,-12,12, rand);
+            setShip2(1,1,-6,6, rand, ship1);
+            setShip2(2,2,-12,12, rand, ship1);
         }
         else if ((ship1==16)||(ship1==17)||(ship1==22)||(ship1==23)){
-            setShip2(-1,-1,-6,6, rand);
-            setShip2(-2,-2,-12,12, rand);
+            setShip2(-1,-1,-6,6, rand, ship1);
+            setShip2(-2,-2,-12,12, rand, ship1);
         }
         else if ((ship1==26)||(ship1==27)||(ship1==32)||(ship1==33)){
-            setShip2(-1,1,-6,-6, rand);
-            setShip2(-2,2,-12,-12, rand);
+            setShip2(-1,1,-6,-6, rand, ship1);
+            setShip2(-2,2,-12,-12, rand, ship1);
         }
         /* ^ sides */
         else{
-            setShip2(-1,1,-6,6, rand);
-            setShip2(-2,2,-12,12, rand);
+            setShip2(-1,1,-6,6, rand, ship1);
+            setShip2(-2,2,-12,12, rand, ship1);
         }
         /* Conditions for where the second ship part can be placed. */
+        }
     }
     
-    void setShip2(Integer left,Integer right,Integer up,Integer down, Integer rand){
+    void setShip2(Integer left,Integer right,Integer up,Integer down, Integer rand, Integer ship1){
         /* Randomly selects where to place the second part of the ship. */
         switch (rand) {
             case 1:
-                boxes[ship1+left].setAccessibleText("X");
+                if (boxes[ship1+left].getAccessibleText.equals("X")){
+                    rand = ThreadLocalRandom.current().nextInt(1,4+1);
+                    setShip2();
+                }
+                else{
+                boxes[ship1+left].setAccessibleText("X");  
+                }
                 break;
             case 2:
                 boxes[ship1+right].setAccessibleText("X");
