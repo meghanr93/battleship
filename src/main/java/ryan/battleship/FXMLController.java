@@ -131,8 +131,8 @@ public class FXMLController implements Initializable {
      ArrayList<Integer> scores = new ArrayList();
     
     @FXML
-    void btnExitClick(ActionEvent event) {
-        System.exit(0);
+    void btnExitClick(ActionEvent event) throws IOException {
+        MainApp.setRoot("titlescreen");
     }
     
     @FXML
@@ -360,18 +360,6 @@ public class FXMLController implements Initializable {
             boxes[i].setAccessibleText("");
         }
         }
-    }
-    
-    @FXML
-    void btnInstructClick(ActionEvent event) {
-        /* Brings up an alert box with rules on how to play. */
-    player = new MediaPlayer((new Media(getClass().getResource("/Click.mp3").toString())));
-    player.play();
-    Alert alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle("How to Play");
-    alert.setHeaderText(null);
-    alert.setContentText("Click the grid squares to find the hidden ships. The two ships are either two or three connected grids long. Find all 5 ship grids to win. If you run out of turns, you lose.");
-    alert.showAndWait();
     }
     
     @FXML
