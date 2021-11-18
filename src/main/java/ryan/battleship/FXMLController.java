@@ -137,6 +137,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnResetClick(ActionEvent event) {
+        /* Resets the game, generating new ships and setting all of the Images back to white. */
         player = new MediaPlayer((new Media(getClass().getResource("/Ding.mp3").toString())));
         player.play();
         turns = 24;
@@ -332,18 +333,18 @@ public class FXMLController implements Initializable {
             playing=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
             player.play();
-        if (!scores.contains(turns)){
+        /*if (!scores.contains(turns)){*/
             TextInputDialog dialog = new TextInputDialog("");
             dialog.setTitle("New Score!");
             dialog.setHeaderText("You've beaten your previous score!");
             dialog.setContentText("Please enter your name:");
             Optional<String> result = dialog.showAndWait();
-            scores.add(turns);
+            scores.add(24-turns);
             Collections.sort(scores);
             String output = "";
             output += (scores) + "\n";
             lblScores.setText(output);
-        }
+        /*}*/
         }
         else if (turns==0){
             playing=false;
@@ -363,6 +364,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnInstructClick(ActionEvent event) {
+        /* Brings up an alert box with rules on how to play. */
     player = new MediaPlayer((new Media(getClass().getResource("/Click.mp3").toString())));
     player.play();
     Alert alert = new Alert(AlertType.INFORMATION);
@@ -374,6 +376,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void imgHover(MouseEvent event) {
+        /* Causes the ImageView grids to expand when hovered over. */
         ImageView grid = (ImageView) event.getSource();
         String state = grid.getAccessibleText();
         if ((!"".equals(state))&&(playing==true)){ 
@@ -387,6 +390,7 @@ public class FXMLController implements Initializable {
 
     @FXML
     void imgUnhover(MouseEvent event) {
+        /* Causes the expanded ImageView grids to shrink back to original size when not hovered over. */
         ImageView grid = (ImageView) event.getSource();
         grid.setFitHeight(100);
         grid.setFitWidth(100);
@@ -397,6 +401,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnHover(MouseEvent event) {
+        /* Causes Buttons to expand when hovered over. */
         Button button = (Button) event.getSource();
         button.setPrefHeight(55);
         button.setPrefWidth(82.5);
@@ -407,6 +412,7 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnUnhover(MouseEvent event) {
+        /* Causes expanded Buttons to shrink back to original size when not hovered over. */
         Button button = (Button) event.getSource();
         button.setPrefHeight(50);
         button.setPrefWidth(75);
