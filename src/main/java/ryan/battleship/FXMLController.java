@@ -26,8 +26,6 @@ import javafx.scene.media.MediaPlayer;
  import java.util.ArrayList;
  import java.util.Collections;
 import java.util.Optional;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextInputDialog;
 
 public class FXMLController implements Initializable {

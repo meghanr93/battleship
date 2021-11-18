@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: black;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ryan.battleship.FXMLController_1">
+<AnchorPane id="AnchorPane" prefHeight="750.0" prefWidth="750.0" style="-fx-background-color: black;" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ryan.battleship.FXMLTitle">
    <children>
       <Button layoutX="325.0" layoutY="375.0" mnemonicParsing="false" onAction="#btnPlayClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="50.0" prefWidth="100.0" styleClass="bevel-grey" text="Play">
          <font>
@@ -22,7 +22,12 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Button alignment="CENTER" layoutX="325.0" layoutY="507.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnExitClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="50.0" prefWidth="100.0" styleClass="bevel-grey" text="How to Play">
+      <Button alignment="CENTER" layoutX="325.0" layoutY="574.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnExitClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="50.0" prefWidth="100.0" styleClass="bevel-grey" text="Exit">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="325.0" layoutY="508.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#btnScoresClick" onMouseEntered="#btnHover" onMouseExited="#btnUnhover" prefHeight="50.0" prefWidth="100.0" styleClass="bevel-grey" text="Scores">
          <font>
             <Font size="15.0" />
          </font>

@@ -17,35 +17,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
+import javafx.scene.control.Label;
 
 
-public class FXMLController_1 implements Initializable {
-    
-    MediaPlayer player;
+public class FXMLScores implements Initializable {
     
     @FXML
-    private void btnPlayClick(ActionEvent event) throws IOException {
-        MainApp.setRoot("primary");
-    }
+    private Label lblScores;
     
     @FXML
-    void btnInstructClick(ActionEvent event) {
-        /* Brings up an alert box with rules on how to play. */
-    player = new MediaPlayer((new Media(getClass().getResource("/Click.mp3").toString())));
-    player.play();
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("How to Play");
-    alert.setHeaderText(null);
-    alert.setContentText("Click the grid squares to find the hidden ships. The two ships are either two or three connected grids long. Find all 5 ship grids to win. If you run out of turns, you lose.");
-    alert.showAndWait();
-    }
-    
-    @FXML
-    void btnExitClick(ActionEvent event) {
-        System.exit(0);
+    void btnMenuClick(ActionEvent event) throws IOException {
+        /* Goes back to the menu scene. */
+        MainApp.setRoot("titlescreen");
     }
     
     @FXML
