@@ -189,7 +189,7 @@
             <Image url="@../white.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="649.0" layoutY="41.0" text="Turns Left" textFill="WHITE">
+      <Label layoutX="649.0" layoutY="51.0" text="Turns Left" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -289,10 +289,27 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblScores" alignment="TOP_CENTER" layoutX="651.0" layoutY="310.0" prefHeight="331.0" prefWidth="87.0" textFill="WHITE">
+      <Label fx:id="lblScores" alignment="TOP_CENTER" layoutX="651.0" layoutY="304.0" prefHeight="337.0" prefWidth="87.0" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <Label fx:id="lblSeconds" alignment="CENTER" layoutX="680.0" layoutY="11.0" prefHeight="17.0" prefWidth="59.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblMinutes" alignment="CENTER" layoutX="644.0" layoutY="11.0" prefHeight="30.0" prefWidth="66.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="665.0" layoutY="7.0" prefHeight="38.0" prefWidth="59.0" text=":" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="636.0" layoutY="22.0" prefHeight="38.0" prefWidth="59.0" text="Minutes" textFill="WHITE" />
+      <Label alignment="CENTER" layoutX="695.0" layoutY="22.0" prefHeight="38.0" prefWidth="59.0" text="Seconds" textFill="WHITE" />
    </children>
 </AnchorPane>

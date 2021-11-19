@@ -23,10 +23,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
- import java.util.ArrayList;
- import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Optional;
 import javafx.scene.control.TextInputDialog;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import javafx.util.Duration;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 
 public class FXMLController implements Initializable {
         
@@ -109,6 +116,10 @@ public class FXMLController implements Initializable {
     private Label lblHits;
     @FXML
     private Label lblScores;
+    @FXML
+    private Label lblSeconds;
+    @FXML
+    private Label lblMinutes;
     
     ImageView boxes[];
     int turns = 24;
@@ -121,6 +132,11 @@ public class FXMLController implements Initializable {
     boolean playing=true;
     
     MediaPlayer player;
+    
+    Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), ae -> time()));
+    int sec = 0;
+    int min = 0;
+    boolean start = false;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
@@ -133,6 +149,19 @@ public class FXMLController implements Initializable {
         MainApp.setRoot("titlescreen");
     }
     
+    @FXML 
+    void time(){
+        if (start==true){
+        sec = sec+1;
+        if (sec==60){
+            min = min+1;
+            sec=0;
+        }
+        lblSeconds.setText(""+sec);
+        lblMinutes.setText(""+min);
+        }
+    }
+    
     @FXML
     void btnResetClick(ActionEvent event) {
         /* Resets the game, generating new ships and setting all of the Images back to white. */
@@ -141,6 +170,11 @@ public class FXMLController implements Initializable {
         turns = 24;
         lblTurns.setText(""+24);
         hits=0;
+        start=false;
+        sec=0;
+        lblSeconds.setText("0");
+        min=0;
+        lblMinutes.setText("0");
         lblHits.setText("0");
         for (int i = 0; i < boxes.length; i++) {
             boxes[i].setImage(white);
@@ -156,6 +190,7 @@ public class FXMLController implements Initializable {
     void imgClick(MouseEvent event) {
         /* Code runs whenever one of the grid boxes are clicked. */
         if (playing == true){
+            start=true;
             ImageView grid = (ImageView) event.getSource();
             String state = grid.getAccessibleText();
         if (!"".equals(state)){
@@ -277,7 +312,7 @@ public class FXMLController implements Initializable {
             threeship=false;
             }
         }
-        /* Conditions for where the second ship part can be placed. */
+        /* Conditions for where the second and third ship part can be placed. */
         }
     }
     
@@ -329,6 +364,7 @@ public class FXMLController implements Initializable {
         /* Checks for win or lose condition. */
         if (hits==5){
             playing=false;
+            start=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
             player.play();
         /*if (!scores.contains(turns)){*/
@@ -346,6 +382,7 @@ public class FXMLController implements Initializable {
         }
         else if (turns==0){
             playing=false;
+            start=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Fail.mp3").toString())));
             player.play();
             for (int i = 0; i < boxes.length; i++) {
@@ -417,5 +454,7 @@ public class FXMLController implements Initializable {
         boxes=temp;
         setShip();
         setShip();
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }    
 }
