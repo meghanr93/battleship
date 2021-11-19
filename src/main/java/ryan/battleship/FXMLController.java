@@ -118,8 +118,6 @@ public class FXMLController implements Initializable {
     private Label lblScores;
     @FXML
     private Label lblSeconds;
-    @FXML
-    private Label lblMinutes;
     
     ImageView boxes[];
     int turns = 24;
@@ -135,14 +133,13 @@ public class FXMLController implements Initializable {
     
     Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), ae -> time()));
     int sec = 0;
-    int min = 0;
     boolean start = false;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
     /* Image variables so they can be easily reused. */
     
-     ArrayList<Integer> scores = new ArrayList();
+    ArrayList<Integer> scores = new ArrayList();
     
     @FXML
     void btnExitClick(ActionEvent event) throws IOException {
@@ -153,12 +150,7 @@ public class FXMLController implements Initializable {
     void time(){
         if (start==true){
         sec = sec+1;
-        if (sec==60){
-            min = min+1;
-            sec=0;
-        }
         lblSeconds.setText(""+sec);
-        lblMinutes.setText(""+min);
         }
     }
     
@@ -173,8 +165,6 @@ public class FXMLController implements Initializable {
         start=false;
         sec=0;
         lblSeconds.setText("0");
-        min=0;
-        lblMinutes.setText("0");
         lblHits.setText("0");
         for (int i = 0; i < boxes.length; i++) {
             boxes[i].setImage(white);
