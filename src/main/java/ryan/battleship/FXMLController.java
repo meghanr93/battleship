@@ -139,7 +139,38 @@ public class FXMLController implements Initializable {
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
     /* Image variables so they can be easily reused. */
     
+    String name[];
+    Integer score[];
+    
     ArrayList<Integer> scores = new ArrayList();
+    
+    void readScores() {
+        try {
+
+            BufferedReader readFile = new BufferedReader(new FileReader("scores.txt"));
+            for (int i = 0; i < 5; i++) {
+                name[i] = readFile.readLine();
+                score[i] = Integer.parseInt(readFile.readLine());
+            }
+            readFile.close();
+        } catch (IOException e) {
+        }
+    }
+
+    void writeScore() {
+        try {
+            BufferedWriter outFile = new BufferedWriter(new FileWriter("scores.txt"));
+            for (int i = 0; i < 5; i++) {
+                outFile.write(name[i]);
+                outFile.newLine();
+                outFile.write(score[i]);
+                outFile.newLine();
+            }
+            outFile.close();
+        } catch (IOException e) {
+        }
+    }
+
     
     @FXML
     void btnExitClick(ActionEvent event) throws IOException {
