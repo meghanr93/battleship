@@ -208,7 +208,7 @@ public class FXMLController implements Initializable {
     }
 
     @FXML
-    void imgClick(MouseEvent event) {
+    void imgClick(MouseEvent event)throws IOException {
         /* Code runs whenever one of the grid boxes are clicked. */
         if (playing == true){
             start=true;
@@ -381,25 +381,29 @@ public class FXMLController implements Initializable {
         }
     }
     
-    void winCheck(){
+    void winCheck()throws IOException {
         /* Checks for win or lose condition. */
         if (hits==5){
             playing=false;
             start=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
             player.play();
-        /*if (!scores.contains(turns)){*/
+            for (int i = 0; i < 5; i++) {
+                if (score[i]<(24-turns)){
             TextInputDialog dialog = new TextInputDialog("");
             dialog.setTitle("New Score!");
             dialog.setHeaderText("You've beaten your previous score!");
             dialog.setContentText("Please enter your name:");
             Optional<String> result = dialog.showAndWait();
-            scores.add(24-turns);
+            score[i].equals(24-turns);
+            name[i].equals(result);
             Collections.sort(scores);
             String output = "";
-            output += (scores) + "\n";
+            output += (score) + "\n";
             lblScores.setText(output);
-        /*}*/
+                }
+            }
+            MainApp.setRoot("winscreen");
         }
         else if (turns==0){
             playing=false;
@@ -414,6 +418,7 @@ public class FXMLController implements Initializable {
                 boxes[i].setImage(ship);
                 }
             boxes[i].setAccessibleText("");
+            MainApp.setRoot("losescreen");
         }
         }
     }
