@@ -35,6 +35,22 @@ public class FXMLScores implements Initializable {
         MainApp.setRoot("titlescreen");
     }
     
+    String name[];
+    Integer score[];
+    
+    void readScores() {
+        try {
+
+            BufferedReader readFile = new BufferedReader(new FileReader("scores.txt"));
+            for (int i = 0; i < 5; i++) {
+                name[i] = readFile.readLine();
+                score[i] = Integer.parseInt(readFile.readLine());
+            }
+            readFile.close();
+        } catch (IOException e) {
+        }
+    }
+    
     @FXML
     void btnHover(MouseEvent event) {
         /* Causes Buttons to expand when hovered over. */
@@ -59,6 +75,10 @@ public class FXMLScores implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        readScores();
+        String output = "";
+        output += (score) + "\n";
+        output += (name) + "\n";
+        lblScores.setText(output);
     }    
 }
