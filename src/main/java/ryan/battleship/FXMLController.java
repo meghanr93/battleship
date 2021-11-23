@@ -128,6 +128,7 @@ public class FXMLController implements Initializable {
     int down = 6;
     boolean threeship=true;
     boolean playing=true;
+    String dialog;
     
     MediaPlayer player;
     
@@ -170,8 +171,7 @@ public class FXMLController implements Initializable {
         } catch (IOException e) {
         }
     }
-
-    
+   
     @FXML
     void btnExitClick(ActionEvent event) throws IOException {
         MainApp.setRoot("titlescreen");
@@ -381,6 +381,14 @@ public class FXMLController implements Initializable {
         }
     }
     
+    void winbox(){
+        TextInputDialog dialog = new TextInputDialog("");
+        dialog.setTitle("New Score!");
+        dialog.setHeaderText("You've beaten a previous score!");
+        dialog.setContentText("Please enter your name:");
+        Optional<String> result = dialog.showAndWait();
+    }
+    
     void winCheck()throws IOException {
         /* Checks for win or lose condition. */
         if (hits==5){
@@ -388,19 +396,53 @@ public class FXMLController implements Initializable {
             start=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
             player.play();
-            for (int i = 0; i < 5; i++) {
-                if (score[i]<(24-turns)){
-            TextInputDialog dialog = new TextInputDialog("");
-            dialog.setTitle("New Score!");
-            dialog.setHeaderText("You've beaten your previous score!");
-            dialog.setContentText("Please enter your name:");
-            Optional<String> result = dialog.showAndWait();
-            score[i].equals(24-turns);
-            name[i].equals(result);
-            Collections.sort(scores);
-            String output = "";
-            output += (score) + "\n";
-            lblScores.setText(output);
+            for (int i = 0; i < 5; i++) {             
+                int current = (24-turns);
+                if (score[0] > current) {
+                    winbox();
+                    name[0]=(dialog);
+                    score[4]=score[3];
+                    score[3]=score[2];
+                    score[2]=score[1];
+                    score[1]=score[0];
+                    score[0]=current;
+                    writeScore();
+                }
+                else if (score[1] > current){
+                    winbox();
+                    name[4]=name[3];
+                    name[3]=name[2];
+                    name[2]=name[1];
+                    name[1]=dialog;
+                    score[4]=score[3];
+                    score[3]=score[2];
+                    score[2]=score[1];
+                    score[1]=current;
+                    writeScore();
+                }
+                else if (score[2] > current){
+                    winbox();
+                    name[4]=name[3];
+                    name[3]=name[2];
+                    name[2]=dialog;
+                    score[4]=score[3];
+                    score[3]=score[2];
+                    score[2]=current;
+                    writeScore();
+                }
+                else if (score[3] > current){
+                    winbox();
+                    name[4]=name[3];
+                    name[3]=dialog;
+                    score[4]=score[3];
+                    score[3]=current;
+                    writeScore();
+                }
+                else if (score[1] > current){
+                    winbox();
+                    name[4]=(dialog);
+                    score[4]=current;
+                    writeScore();
                 }
             }
             MainApp.setRoot("winscreen");

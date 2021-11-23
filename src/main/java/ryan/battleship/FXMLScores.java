@@ -28,6 +28,8 @@ public class FXMLScores implements Initializable {
     
     @FXML
     private Label lblScores;
+    @FXML
+    private Label lblNames;
     
     @FXML
     void btnMenuClick(ActionEvent event) throws IOException {
@@ -76,9 +78,13 @@ public class FXMLScores implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         readScores();
-        String output = "";
-        output += (score) + "\n";
-        output += (name) + "\n";
-        lblScores.setText(output);
+        lblScores.setText("");
+            for (int i = 0; i < score.length; i++) {
+        lblScores.setText(lblScores.getText() +i + ":" + score[i] + "\n");
+        }
+        lblNames.setText("");
+            for (int i = 0; i < name.length; i++) {
+        lblNames.setText(lblNames.getText() +i + ":" + name[i] + "\n");
+    }
     }    
 }
