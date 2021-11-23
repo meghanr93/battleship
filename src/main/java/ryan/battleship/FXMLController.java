@@ -115,8 +115,6 @@ public class FXMLController implements Initializable {
     @FXML
     private Label lblHits;
     @FXML
-    private Label lblScores;
-    @FXML
     private Label lblSeconds;
     
     ImageView boxes[];
@@ -129,6 +127,8 @@ public class FXMLController implements Initializable {
     boolean threeship=true;
     boolean playing=true;
     String dialog;
+    String nametext="";
+    int current;
     
     MediaPlayer player;
     
@@ -140,10 +140,8 @@ public class FXMLController implements Initializable {
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
     /* Image variables so they can be easily reused. */
     
-    String name[];
-    Integer score[];
-    
-    ArrayList<Integer> scores = new ArrayList();
+    String name[]= new String[5];
+    int score[]= new int[5];
     
     void readScores() {
         try {
@@ -164,7 +162,7 @@ public class FXMLController implements Initializable {
             for (int i = 0; i < 5; i++) {
                 outFile.write(name[i]);
                 outFile.newLine();
-                outFile.write(score[i]);
+                outFile.write(""+(score[i]));
                 outFile.newLine();
             }
             outFile.close();
@@ -387,6 +385,7 @@ public class FXMLController implements Initializable {
         dialog.setHeaderText("You've beaten a previous score!");
         dialog.setContentText("Please enter your name:");
         Optional<String> result = dialog.showAndWait();
+        nametext=dialog.getEditor().getText();
     }
     
     void winCheck()throws IOException {
@@ -396,11 +395,15 @@ public class FXMLController implements Initializable {
             start=false;
             player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
             player.play();
-            for (int i = 0; i < 5; i++) {             
-                int current = (24-turns);
+            current = (24-turns);
+            readScores();            
                 if (score[0] > current) {
                     winbox();
-                    name[0]=(dialog);
+                    name[4]=name[3];
+                    name[3]=name[2];
+                    name[2]=name[1];
+                    name[1]=name[0];
+                    name[0]=(nametext);
                     score[4]=score[3];
                     score[3]=score[2];
                     score[2]=score[1];
@@ -413,7 +416,7 @@ public class FXMLController implements Initializable {
                     name[4]=name[3];
                     name[3]=name[2];
                     name[2]=name[1];
-                    name[1]=dialog;
+                    name[1]=nametext;
                     score[4]=score[3];
                     score[3]=score[2];
                     score[2]=score[1];
@@ -424,7 +427,7 @@ public class FXMLController implements Initializable {
                     winbox();
                     name[4]=name[3];
                     name[3]=name[2];
-                    name[2]=dialog;
+                    name[2]=nametext;
                     score[4]=score[3];
                     score[3]=score[2];
                     score[2]=current;
@@ -433,18 +436,17 @@ public class FXMLController implements Initializable {
                 else if (score[3] > current){
                     winbox();
                     name[4]=name[3];
-                    name[3]=dialog;
+                    name[3]=nametext;
                     score[4]=score[3];
                     score[3]=current;
                     writeScore();
                 }
                 else if (score[1] > current){
                     winbox();
-                    name[4]=(dialog);
+                    name[4]=(nametext);
                     score[4]=current;
                     writeScore();
-                }
-            }
+                }           
             MainApp.setRoot("winscreen");
         }
         else if (turns==0){
@@ -524,5 +526,6 @@ public class FXMLController implements Initializable {
         setShip();
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+        readScores();
     }    
 }

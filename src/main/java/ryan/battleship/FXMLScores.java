@@ -37,8 +37,8 @@ public class FXMLScores implements Initializable {
         MainApp.setRoot("titlescreen");
     }
     
-    String name[];
-    Integer score[];
+    String name[]=new String[5];
+    int score[]=new int[5];
     
     void readScores() {
         try {
@@ -79,12 +79,12 @@ public class FXMLScores implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         readScores();
         lblScores.setText("");
-            for (int i = 0; i < score.length; i++) {
-        lblScores.setText(lblScores.getText() +i + ":" + score[i] + "\n");
+            for (int i = 0; i < 5; i++) {
+        lblScores.setText(lblScores.getText() +score[i] + "\n");
         }
         lblNames.setText("");
-            for (int i = 0; i < name.length; i++) {
-        lblNames.setText(lblNames.getText() +i + ":" + name[i] + "\n");
-    }
+            for (int i = 0; i < 5; i++) {
+        lblNames.setText(lblNames.getText() +name[i] + "\n");
+        }
     }    
 }
