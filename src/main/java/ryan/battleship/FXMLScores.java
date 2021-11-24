@@ -41,6 +41,7 @@ public class FXMLScores implements Initializable {
     int score[]=new int[5];
     
     void readScores() {
+        /* Reads from the scores file. */
         try {
 
             BufferedReader readFile = new BufferedReader(new FileReader("scores.txt"));
@@ -85,6 +86,7 @@ public class FXMLScores implements Initializable {
         lblNames.setText("");
             for (int i = 0; i < 5; i++) {
         lblNames.setText(lblNames.getText() +name[i] + "\n");
+        /* Sets the scores in the labels when the scene is opened. */
         }
     }    
 }

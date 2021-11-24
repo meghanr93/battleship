@@ -135,18 +135,21 @@ public class FXMLController implements Initializable {
     
     MediaPlayer player;
     
+    /* Game timer timeline and variables. */
     Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), ae -> time()));
-    int sec = 0;
+    int sec = 0;   
     boolean start = false;
 
     Image white = new Image(getClass().getResource("/white.jpg").toString());
     Image ship = new Image(getClass().getResource("/boss_galaga.jpg").toString());
     /* Image variables so they can be easily reused. */
     
+    /* Score arrays. */
     String name[]= new String[5];
     int score[]= new int[5];
     
     void readScores() {
+        /* Reads the scores in the file. */
         try {
             BufferedReader readFile = new BufferedReader(new FileReader("scores.txt"));
             for (int i = 0; i < 5; i++) {
@@ -159,6 +162,7 @@ public class FXMLController implements Initializable {
     }
 
     void writeScore() {
+        /* Writes to the name and score file. */
         try {
             BufferedWriter outFile = new BufferedWriter(new FileWriter("scores.txt"));
             for (int i = 0; i < 5; i++) {
@@ -173,6 +177,7 @@ public class FXMLController implements Initializable {
     }
     
     void readWins() {
+        /* Checks total wins over the course of the game played in a file. */
         try {
             BufferedReader readFile = new BufferedReader(new FileReader("wins.txt"));
             wincount = Integer.parseInt(readFile.readLine());              
@@ -182,6 +187,7 @@ public class FXMLController implements Initializable {
     }
    
     void writeWins() {
+        /* Adds to the win count file. */
         try {
             BufferedWriter outFile = new BufferedWriter(new FileWriter("wins.txt"));
             outFile.write(""+(wincount));
@@ -192,11 +198,13 @@ public class FXMLController implements Initializable {
     
     @FXML
     void btnExitClick(ActionEvent event) throws IOException {
+        /* Changes the scene to title screen. */
         MainApp.setRoot("titlescreen");
     }
     
     @FXML 
     void time(){
+        /* Adds a second to the game timer. */
         if (start==true){
         sec = sec+1;
         lblSeconds.setText(""+sec);
@@ -262,6 +270,9 @@ public class FXMLController implements Initializable {
     }
     
     void setDirections(Integer l, Integer r, Integer u, Integer d){
+        /* Changes the grid the second or third part of a ship will be placed in.
+        It saves the direction of a ship while the ship is generated so the second and third
+        ship part are generated in the same direction. */
         left = l;
         right = r;
         up = u;
@@ -284,6 +295,8 @@ public class FXMLController implements Initializable {
             if (threeship==true){
             setShip2((left*2),(right*2),(up*2),(down*2), rand, ship1);
             threeship=false;
+            /* If threeship is true, generates a third ship part. Otherwise the ship will
+            be only two parts long. */
             }
         }
         else if ((ship1==4)||(ship1==5)||(ship1==10)||(ship1==11)){
@@ -400,6 +413,7 @@ public class FXMLController implements Initializable {
     }
     
     void winbox(){
+        /* Brings up a TextInputDialog box to input a name when the player gets a new score. */
         TextInputDialog dialog = new TextInputDialog("");
         dialog.setTitle("New Score!");
         dialog.setHeaderText("You've beaten a previous score!");
@@ -421,6 +435,7 @@ public class FXMLController implements Initializable {
             wincount=wincount+1;
             writeWins();
             lblWins.setText(""+wincount);
+            /* Moves around the scores in the score arrays and writes to the scores file. */
                 if (score[0] > current) {
                     winbox();
                     name[4]=name[3];
@@ -479,6 +494,7 @@ public class FXMLController implements Initializable {
             player = new MediaPlayer((new Media(getClass().getResource("/Fail.mp3").toString())));
             player.play();
             for (int i = 0; i < boxes.length; i++) {
+                /* Changes the images so the player can see where the ships were. */
                 if (boxes[i].getAccessibleText().equals("O")){
                 boxes[i].setImage(null);
                 }
