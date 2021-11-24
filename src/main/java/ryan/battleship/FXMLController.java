@@ -480,7 +480,7 @@ public class FXMLController implements Initializable {
                     score[3]=current;
                     writeScore();
                 }
-                else if (score[1] > current){
+                else if (score[4] > current){
                     winbox();
                     name[4]=(nametext);
                     score[4]=current;
