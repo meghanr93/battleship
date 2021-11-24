@@ -116,6 +116,8 @@ public class FXMLController implements Initializable {
     private Label lblHits;
     @FXML
     private Label lblSeconds;
+    @FXML
+    private Label lblWins;
     
     ImageView boxes[];
     int turns = 24;
@@ -129,6 +131,7 @@ public class FXMLController implements Initializable {
     String dialog;
     String nametext="";
     int current;
+    int wincount;
     
     MediaPlayer player;
     
@@ -145,7 +148,6 @@ public class FXMLController implements Initializable {
     
     void readScores() {
         try {
-
             BufferedReader readFile = new BufferedReader(new FileReader("scores.txt"));
             for (int i = 0; i < 5; i++) {
                 name[i] = readFile.readLine();
@@ -169,7 +171,25 @@ public class FXMLController implements Initializable {
         } catch (IOException e) {
         }
     }
+    
+    void readWins() {
+        try {
+            BufferedReader readFile = new BufferedReader(new FileReader("wins.txt"));
+            wincount = Integer.parseInt(readFile.readLine());              
+            readFile.close();
+        } catch (IOException e) {
+        }
+    }
    
+    void writeWins() {
+        try {
+            BufferedWriter outFile = new BufferedWriter(new FileWriter("wins.txt"));
+            outFile.write(""+(wincount));
+            outFile.close();
+        } catch (IOException e) {
+        }
+    }
+    
     @FXML
     void btnExitClick(ActionEvent event) throws IOException {
         MainApp.setRoot("titlescreen");
@@ -396,7 +416,11 @@ public class FXMLController implements Initializable {
             player = new MediaPlayer((new Media(getClass().getResource("/Win.mp3").toString())));
             player.play();
             current = (24-turns);
-            readScores();            
+            readScores();  
+            readWins();
+            wincount=wincount+1;
+            writeWins();
+            lblWins.setText(""+wincount);
                 if (score[0] > current) {
                     winbox();
                     name[4]=name[3];
@@ -527,5 +551,7 @@ public class FXMLController implements Initializable {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
         readScores();
+        readWins();
+        lblWins.setText(""+wincount);
     }    
 }
